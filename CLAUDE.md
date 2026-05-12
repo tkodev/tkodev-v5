@@ -92,6 +92,8 @@ Components follow an **Atomic Design hierarchy**:
 - `organisms/` — Complex UI sections composed of groups of molecules and/or atoms. They represent a distinct section of an interface. (Header, Dialog, Footer, Main)
 - `templates (layouts)` and `pages` are handled by Next.js's `app/` directory
 
+All new components must follow the structure in `components/atoms/example.tsx`
+
 Rules:
 
 - Use CVA (`class-variance-authority`) for all visual variant management — never ad-hoc
@@ -166,7 +168,6 @@ not be active. Only activate via the root layout font variable if required.
 - Do not sign commits or PRs as Claude.
 - Do not include `claude.ai/code` session links, `Co-Authored-By: Claude` trailers, or
   any other "Generated with Claude Code" markers in commit messages or PR bodies.
-- Do not open a pull request unless explicitly asked.
 
 ## Notes
 

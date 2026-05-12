@@ -5,7 +5,7 @@
 - Work on the branch specified for the task.
 - Create new commits rather than amending.
 - Never force-push or skip hooks without explicit permission.
-- Do not open a pull request unless explicitly asked.
+- Never push directly to `main`. Always work on a feature branch and open a pull request.
 - Base new PRs on the latest main branch.
 
 ## Conventional commits
