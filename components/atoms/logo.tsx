@@ -5,7 +5,7 @@ import { forwardRef, HTMLAttributes } from 'react'
 import { cn, cva, VariantProps } from '@/utils/theme'
 
 const styles = {
-  root: cva('relative h-auto w-18'),
+  root: cva('relative h-auto w-full'),
   img: cva('absolute top-0 left-0 h-full w-full', {
     variants: {
       variant: {
@@ -14,7 +14,7 @@ const styles = {
       }
     }
   }),
-  baseImg: cva('opacity-0')
+  baseImg: cva('h-auto w-full opacity-0')
 }
 
 type LogoRef = HTMLImageElement

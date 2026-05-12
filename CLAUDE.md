@@ -43,7 +43,7 @@ pnpm type:check     # TypeScript type checking
 │       ├── experiments.md
 │       └── notes.md
 ├── app/                   # Next.js App Router pages
-├── components/            # atoms → molecules → organisms → sections → templates
+├── components/            # atoms → molecules → organisms → templates
 ├── constants/             # Static data (clients, jobs, projects, profiles, media, theme, date)
 ├── designs/               # Design assets (branding, signature)
 ├── fonts/                 # next/font loader modules
@@ -86,11 +86,11 @@ Never use `new Date()` directly for project/job dates.
 
 Components follow an **Atomic Design hierarchy**:
 
-- `atoms/` — The smallest, indivisible building blocks that can't be broken down further without losing functionality. (Button, Icon, Logo,
-  Frame, Media, Video, Hypertext, etc.).
+- `atoms/` — The smallest, indivisible building blocks that can't be broken down further without losing functionality. (Button, Icon, Logo, Frame, Media, Video, Hypertext, etc.).
 - `molecules/` — Groups of atoms bonded together to form a small, functional unit with a singular purpose. (Nav, Filter, Table).
-- `organisms/` — Complex UI sections composed of groups of molecules and/or atoms. They represent a distinct section of an interface. (Header, Dialog, Footer, Main)
-- `templates (layouts)` and `pages` are handled by Next.js's `app/` directory
+- `organisms/` — Complex, self-contained UI components composed of molecules and/or atoms. Represent a distinct piece of content or interactivity. (CardHome, Dialog, etc.).
+- `templates/` — Page-level layout shells: structural wrappers that frame the page but carry no content of their own. (Header, Footer, Main, Section, Overlay, Underlay). These are consumed directly by `app/` layouts and pages.
+- `app/` — Next.js pages and layouts. Compose from `templates/` for structure and `organisms/` for content.
 
 All new components must follow the structure in `components/atoms/example.tsx`
 
@@ -103,8 +103,7 @@ Rules:
   child (e.g. `<Button asChild><Link …>`).
 - Keep layout utilities (`w-full`, `mt-4`, etc.) at the call site via `className`;
   keep visual styles inside the CVA definition.
-- New primitives go in `atoms/`; compositions stay in `molecules/` or `organisms/`.
-- For page and layout: composite from `components/` to form content
+- New layout shells go in `templates/`; content-bearing compositions go in `organisms/`; primitives go in `atoms/`.
 
 ### Theming
 
@@ -145,7 +144,7 @@ not be active. Only activate via the root layout font variable if required.
 1. Create `app/<path>/page.tsx` following existing page structure.
 2. Create `prd/pages/<path>.md` following the existing section structure.
 3. Add the route to the Route map table in `prd/PRD.md` §2.
-4. Update the header nav in `components/sections/header.tsx` if the page should
+4. Update the header nav in `components/templates/header.tsx` if the page should
    appear in global navigation.
 
 ### Removing or renaming a page
@@ -168,6 +167,8 @@ not be active. Only activate via the root layout font variable if required.
 - Do not sign commits or PRs as Claude.
 - Do not include `claude.ai/code` session links, `Co-Authored-By: Claude` trailers, or
   any other "Generated with Claude Code" markers in commit messages or PR bodies.
+- Never push directly to `main`. Always work on a feature branch.
+- Do not open a pull request unless explicitly asked.
 
 ## Notes
 
