@@ -2,56 +2,40 @@
 
 import Link from 'next/link'
 import { FC } from 'react'
-import { ArrowUpRightIcon } from 'lucide-react'
+import { ArrowRightIcon } from 'lucide-react'
 import { Button } from '@/components/atoms/button'
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/atoms/card'
-import { Logo } from '@/components/atoms/logo'
+import { Icon } from '@/components/atoms/icon'
+import { Intro } from '@/components/molecules/intro'
 import { cn, cva } from '@/utils/theme'
 
 const styles = {
-  root: cva('bg-background w-full'),
-  header: cva('flex w-full flex-row items-center justify-between'),
-  logo: cva('w-full'),
-  footer: cva('flex items-end justify-between gap-6'),
-  blurb: cva('flex flex-col gap-3'),
-  blurbText: cva('text-muted-foreground text-sm leading-relaxed')
+  root: cva('flex w-full items-center justify-center'),
+  title: cva('text-h4 font-heading'),
+  cta: cva('mt-2')
 }
 
 const CardHome: FC = () => {
   return (
-    <Card className={cn(styles.root())}>
-      <CardHeader>
-        <div className={cn(styles.header())}>
-          <Button size="sm" variant="link">
-            Staff Software Engineer + Designer
-          </Button>
-          <Button size="sm" variant="link" asChild>
-            <Link href="https://badal.io" target="_blank">
-              Badal.io
-              <ArrowUpRightIcon />
+    <div className={cn(styles.root())}>
+      <Intro>
+        <h1 className={cn(styles.title())}>
+          Works By <strong>Tony Ko</strong>
+        </h1>
+        <h2>
+          <strong>Staff Software Engineer</strong> & <strong>Designer</strong> —
+        </h2>
+        <h3>
+          Based in <em>Toronto, Canada.</em>
+        </h3>
+        <div className={cn(styles.cta())}>
+          <Button size="lg" asChild>
+            <Link href="/profile">
+              Explore Profile <Icon icon={ArrowRightIcon} />
             </Link>
           </Button>
         </div>
-      </CardHeader>
-
-      <CardContent>
-        <Logo className={cn(styles.logo())} />
-      </CardContent>
-
-      <CardFooter className={cn(styles.footer())}>
-        <div className={cn(styles.blurb())}>
-          <p className={cn(styles.blurbText())}>
-            Tony Ko is a Canadian Staff Software Engineer + Designer working with Badal.io
-          </p>
-        </div>
-        <Button size="sm" variant="link" asChild>
-          <Link href="/profile">
-            View profile
-            <ArrowUpRightIcon />
-          </Link>
-        </Button>
-      </CardFooter>
-    </Card>
+      </Intro>
+    </div>
   )
 }
 
