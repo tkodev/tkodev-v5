@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import './helpers.css';
+
+@plugin 'tailwind-gradient-mask-image';
 
 @custom-variant dark (&:is(.dark *));
 
