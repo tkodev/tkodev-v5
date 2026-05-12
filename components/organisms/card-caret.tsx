@@ -5,7 +5,7 @@ import { cn, cva, VariantProps } from '@/utils/theme'
 
 const styles = {
   root: cva(
-    'flex animate-bounce cursor-pointer items-center justify-center transition-opacity hover:opacity-80'
+    'absolute bottom-18 left-1/2 flex -translate-x-1/2 animate-bounce cursor-pointer items-center justify-center transition-opacity hover:opacity-80'
   )
 }
 

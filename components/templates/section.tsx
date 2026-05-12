@@ -15,7 +15,7 @@ const styles = {
     }
   }),
   underlay: cva('absolute top-0 left-0 h-full w-full'),
-  content: cva('relative mx-auto w-full max-w-full grow px-8 py-24 lg:py-32', {
+  content: cva('relative mx-auto w-full max-w-full grow px-8 py-24', {
     variants: {
       width: {
         full: 'max-w-7xl',
