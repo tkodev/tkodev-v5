@@ -3,13 +3,12 @@
 import Link from 'next/link'
 import { FC, HTMLAttributes } from 'react'
 import { formatInTimeZone } from 'date-fns-tz'
-import { MusicIcon, PauseIcon, PlayIcon, SunMoonIcon } from 'lucide-react'
+import { MusicIcon, PauseIcon, PlayIcon } from 'lucide-react'
+import { Button } from '@/components/atoms/button'
+import { Icon } from '@/components/atoms/icon'
 import { appTimeZone } from '@/constants/date'
-import { useTheme } from '@/hooks/theme'
 import { useBgmContext } from '@/providers/bgm'
 import { cn, cva, type VariantProps } from '@/utils/theme'
-import { Button } from '../atoms/button'
-import { Icon } from '../atoms/icon'
 
 const styles = {
   root: cva(['z-10 h-auto w-full', 'fixed bottom-0 left-0']),
@@ -49,7 +48,6 @@ const Footer: FC<FooterProps> = (props) => {
   const { variant, className, ...rest } = props
 
   const { isPlaying, toggle } = useBgmContext()
-  const { theme, handleThemeModeToggle } = useTheme()
   const year = formatInTimeZone(new Date(), appTimeZone, 'yyyy')
 
   return (
@@ -69,7 +67,8 @@ const Footer: FC<FooterProps> = (props) => {
       <div className={cn(styles.fade())} />
       <div className={cn(styles.container())}>
         <div className={cn(styles.bar({ variant }))}>
-          <div className={cn(styles.left())}>
+          <div className={cn(styles.left())}>© {year} Tony Ko — AGPL</div>
+          <div className={cn(styles.right())}>
             <Button variant={isPlaying ? 'secondary' : 'ghost'} onClick={toggle}>
               <Icon icon={isPlaying ? PauseIcon : PlayIcon} />
             </Button>
@@ -81,18 +80,6 @@ const Footer: FC<FooterProps> = (props) => {
                 <Icon icon={MusicIcon} />
                 An Empty Bus - Justin M. Elias
               </Link>
-            </Button>
-          </div>
-          <div className={cn(styles.right())}>
-            <p className={cn(styles.bgm(), 'text-muted-foreground text-xs')}>
-              © {year} Tony Ko — AGPL
-            </p>
-            <Button
-              variant={theme === 'dark' ? 'secondary' : 'ghost'}
-              onClick={handleThemeModeToggle}
-            >
-              <Icon icon={SunMoonIcon} />
-              {theme === 'light' ? 'Light' : 'Dark'}
             </Button>
           </div>
         </div>

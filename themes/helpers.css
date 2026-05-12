@@ -1,31 +1,3 @@
-
-* {
-  @apply border-border;
-}
-strong {
-  @apply font-semibold;
-}
-
-body {
-  font-feature-settings: "rlig" 1, "calt" 1;
-}
-.light {
-  color-scheme: light;
-}
-.dark {
-  color-scheme: dark;
-}
-
-/* Custom cursor
-@media (pointer: fine) {
-  *, *::before, *::after {
-    cursor: none !important;
-  }
-  a, button, [role="button"], input, select, textarea, label {
-    cursor: none !important;
-  }
-} */
-
 /* Hide number arrows on inputs */
 .hide-number-arrows::-webkit-inner-spin-button,
 .hide-number-arrows::-webkit-outer-spin-button {

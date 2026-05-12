@@ -11,11 +11,11 @@ import { geistSansFont } from '@/fonts/geist'
 import { BgmProvider } from '@/providers/bgm'
 import { ThemeProvider } from '@/providers/theme'
 import { cn, cva } from '@/utils/theme'
-import '../themes/globals.css'
+import '@/themes/theme.css'
 
 const styles = {
-  html: cva('h-full w-full scroll-smooth'),
-  body: cva('font-geist-sans h-full w-full antialiased')
+  html: cva('font-body bg-background text-foreground h-full w-full scroll-smooth text-base'),
+  body: cva('font-body bg-background text-foreground h-full w-full text-base antialiased')
 }
 
 const pagedata = {

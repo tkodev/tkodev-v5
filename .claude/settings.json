@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(pnpm build *)",
-      "Bash(pnpm lint:fix)"
+      "Bash(pnpm lint:fix)",
+      "Bash(git commit *)",
+      "Bash(pnpm type:check)"
     ]
   }
 }

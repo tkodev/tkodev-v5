@@ -108,8 +108,8 @@ Background music enhances the cinematic experience. Rules:
 
 | Variable              | Font family      | Usage                          |
 |-----------------------|------------------|--------------------------------|
-| `--font-alliance-no2` | Alliance No.2    | Display headings, brand text   |
-| `--font-geist-sans`   | Geist Sans       | Body text (default)            |
+| `--font-heading`      | Alliance No.2    | Display headings, brand text   |
+| `--font-body`         | Geist Sans       | Body text (default)            |
 
 ### 4.2 Breakpoints
 
