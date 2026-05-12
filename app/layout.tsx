@@ -2,9 +2,14 @@ import type { Metadata } from 'next'
 import { FC, ReactNode } from 'react'
 import { Analytics } from '@vercel/analytics/next'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Footer } from '@/components/organisms/footer'
+import { Header } from '@/components/organisms/header'
+import { Overlay } from '@/components/organisms/overlay'
+import { Underlay } from '@/components/organisms/underlay'
 import { allianceNo2Font } from '@/fonts/alliance-no2'
 import { geistSansFont } from '@/fonts/geist'
-import { ThemeProvider } from '@/providers/theme-provider'
+import { BgmProvider } from '@/providers/bgm'
+import { ThemeProvider } from '@/providers/theme'
 import { cn, cva } from '@/utils/theme'
 import '../themes/globals.css'
 
@@ -80,7 +85,15 @@ const LayoutPage: FC<LayoutPageProps> = (props) => {
         className={cn(styles.body(), allianceNo2Font.variable, geistSansFont.variable)}
         suppressHydrationWarning
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <BgmProvider>
+            <Underlay />
+            <Header />
+            {children}
+            <Footer />
+            <Overlay />
+          </BgmProvider>
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>
