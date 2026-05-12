@@ -15,15 +15,15 @@ const styles = {
   cta: cva('mt-2')
 }
 
-type CardHomeRef = HTMLDivElement
-type CardHomeProps = HTMLAttributes<CardHomeRef> & VariantProps<typeof styles.root>
+type CardIntroRef = HTMLDivElement
+type CardIntroProps = HTMLAttributes<CardIntroRef> & VariantProps<typeof styles.root>
 
-const CardHome = forwardRef<CardHomeRef, CardHomeProps>((props, ref) => {
+const CardIntro = forwardRef<CardIntroRef, CardIntroProps>((props, ref) => {
   const { className, ...rest } = props
 
   return (
     <div ref={ref} className={cn(styles.root({ className }))} {...rest}>
-      <Intro>
+      <Intro variant="text">
         <h1 className={cn(styles.title())}>
           Works By <strong>Tony Ko</strong>
         </h1>
@@ -48,6 +48,6 @@ const CardHome = forwardRef<CardHomeRef, CardHomeProps>((props, ref) => {
     </div>
   )
 })
-CardHome.displayName = 'CardHome'
+CardIntro.displayName = 'CardIntro'
 
-export { CardHome }
+export { CardIntro }

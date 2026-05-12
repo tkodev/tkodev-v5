@@ -23,31 +23,53 @@ const styles = {
     'relative left-8 h-auto w-3/4',
     'animate-slide-up transition-all duration-1000 hover:scale-105'
   ]),
-  avatar: cva([
-    'aspect-square h-auto w-3/5 opacity-75',
-    'centered absolute',
-    'blur-3xl grayscale-25 transition-opacity duration-1000 hover:opacity-100'
-  ]),
-  body: cva(['centered absolute h-auto w-70 text-center', 'flex flex-col gap-2'])
+  avatar: cva(['centered absolute aspect-square h-auto w-1/2', 'grayscale-35 duration-1000'], {
+    variants: {
+      variant: {
+        text: 'opacity-75 blur-3xl transition-opacity hover:opacity-100',
+        avatar: 'transition-transform hover:scale-105'
+      }
+    },
+    defaultVariants: {
+      variant: 'text'
+    }
+  }),
+  body: cva('absolute flex h-auto flex-col gap-2 text-center', {
+    variants: {
+      variant: {
+        text: 'centered w-70',
+        avatar: [
+          'w-70',
+          'top-[82%] left-1/2 -translate-x-1/2',
+          'lg:top-1/2 lg:left-full lg:-translate-1/2 lg:text-left'
+        ]
+      }
+    },
+    defaultVariants: {
+      variant: 'text'
+    }
+  })
 }
 
 type IntroRef = HTMLDivElement
-type IntroProps = HTMLAttributes<IntroRef> & VariantProps<typeof styles.root>
+type IntroProps = HTMLAttributes<IntroRef> &
+  VariantProps<typeof styles.root> &
+  VariantProps<typeof styles.body>
 
 const Intro = forwardRef<IntroRef, IntroProps>((props, ref) => {
-  const { className, children, ...rest } = props
+  const { variant, className, children, ...rest } = props
 
   return (
     <div ref={ref} className={cn(styles.root({ className }))} {...rest}>
       <Cross className={cn(styles.cross())} />
       <Brand className={cn(styles.brand1())} variant="outline" />
       <Brand className={cn(styles.brand2())} variant="outline" />
-      <Avatar className={cn(styles.avatar())}>
+      <Avatar className={cn(styles.avatar({ variant }))}>
         <AvatarImage alt="Tony Ko" src="/images/tkodev/dp-sq.jpg" />
         <AvatarFallback>TKO</AvatarFallback>
       </Avatar>
       <Brand className={cn(styles.brand3())} variant="outline" />
-      <div className={cn(styles.body())}>{children}</div>
+      <div className={cn(styles.body({ variant }))}>{children}</div>
     </div>
   )
 })

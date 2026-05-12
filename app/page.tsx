@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Bg } from '@/components/atoms/bg'
 import { CardCaret } from '@/components/organisms/card-caret'
-import { CardHome } from '@/components/organisms/card-home'
+import { CardIntro } from '@/components/organisms/card-intro'
 import { Main } from '@/components/templates/main'
 import { Section } from '@/components/templates/section'
 import { cn, cva } from '@/utils/theme'
@@ -18,7 +18,7 @@ const Page: FC = () => {
         bg={<Bg attach="local" variant="texture" />}
         height="full"
       >
-        <CardHome />
+        <CardIntro />
         <CardCaret />
       </Section>
       <Section bg={<Bg attach="local" variant="sand" />} height="auto">
