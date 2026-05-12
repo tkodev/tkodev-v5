@@ -5,11 +5,14 @@ import { Cross } from '@/components/atoms/cross'
 import { cn, cva, VariantProps } from '@/utils/theme'
 
 const styles = {
-  root: cva([
-    'mb-30 h-auto w-full md:mb-25 md:w-3/4 lg:mb-0 lg:w-4/5',
-    'relative',
-    'flex flex-col items-center justify-center'
-  ]),
+  root: cva(['relative h-auto w-full md:w-3/4', 'flex flex-col items-center justify-center'], {
+    variants: {
+      variant: {
+        text: '',
+        avatar: 'mb-30 md:mb-25 lg:mb-0'
+      }
+    }
+  }),
   cross: cva(['centered absolute']),
   brand1: cva([
     'relative -left-8 h-auto w-3/4',
@@ -23,17 +26,20 @@ const styles = {
     'relative left-8 h-auto w-3/4',
     'animate-slide-up transition-all duration-1000 hover:scale-105'
   ]),
-  avatar: cva(['centered absolute aspect-square h-auto w-1/2', 'grayscale-35 duration-1000'], {
-    variants: {
-      variant: {
-        text: 'opacity-75 blur-3xl transition-opacity hover:opacity-100',
-        avatar: 'transition-transform hover:scale-105'
+  avatar: cva(
+    [
+      'centered absolute aspect-square h-auto w-1/2',
+      'transition-transform duration-1000 hover:scale-105'
+    ],
+    {
+      variants: {
+        variant: {
+          text: 'blur-3xl',
+          avatar: 'grayscale-35'
+        }
       }
-    },
-    defaultVariants: {
-      variant: 'text'
     }
-  }),
+  ),
   body: cva('absolute flex h-auto flex-col gap-2 text-center', {
     variants: {
       variant: {
@@ -44,9 +50,6 @@ const styles = {
           'lg:top-1/2 lg:left-full lg:-translate-1/2 lg:text-left'
         ]
       }
-    },
-    defaultVariants: {
-      variant: 'text'
     }
   })
 }
@@ -57,10 +60,10 @@ type IntroProps = HTMLAttributes<IntroRef> &
   VariantProps<typeof styles.body>
 
 const Intro = forwardRef<IntroRef, IntroProps>((props, ref) => {
-  const { variant, className, children, ...rest } = props
+  const { variant = 'text', className, children, ...rest } = props
 
   return (
-    <div ref={ref} className={cn(styles.root({ className }))} {...rest}>
+    <div ref={ref} className={cn(styles.root({ variant, className }))} {...rest}>
       <Cross className={cn(styles.cross())} />
       <Brand className={cn(styles.brand1())} variant="outline" />
       <Brand className={cn(styles.brand2())} variant="outline" />
