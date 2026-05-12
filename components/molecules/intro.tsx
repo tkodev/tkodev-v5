@@ -6,11 +6,11 @@ import { cn, cva, VariantProps } from '@/utils/theme'
 
 const styles = {
   root: cva([
-    'mb-30 aspect-square h-auto w-full md:w-4/5 lg:mb-0 lg:w-3/5',
+    'mb-30 aspect-square h-auto w-full md:w-2/3 lg:mb-0 lg:w-3/5',
     'relative',
     'flex flex-col items-center justify-center'
   ]),
-  cross: cva(['h-auto w-full', 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2']),
+  cross: cva(['centered absolute']),
   brand1: cva([
     'relative -left-8 h-auto w-[75%]',
     'animate-slide-down transition-all duration-1000 hover:scale-105'
@@ -24,8 +24,8 @@ const styles = {
     'animate-slide-up transition-all duration-1000 hover:scale-105'
   ]),
   avatar: cva([
-    'h-auto w-[50%]',
-    'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
+    'aspect-square h-auto w-[50%]',
+    'centered absolute',
     'grayscale-25 transition-all duration-1000 hover:scale-105 hover:grayscale'
   ]),
   body: cva([
@@ -49,7 +49,7 @@ const Intro = forwardRef<IntroRef, IntroProps>((props, ref) => {
       <Brand className={cn(styles.brand2())} variant="outline" />
       <Avatar className={cn(styles.avatar())}>
         <AvatarImage alt="Tony Ko" src="/images/tkodev/dp-sq.jpg" />
-        <AvatarFallback>-</AvatarFallback>
+        <AvatarFallback>TKO</AvatarFallback>
       </Avatar>
       <Brand className={cn(styles.brand3())} variant="outline" />
       <div className={cn(styles.body())}>{children}</div>

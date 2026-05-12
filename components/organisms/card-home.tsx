@@ -1,22 +1,27 @@
 'use client'
 
 import Link from 'next/link'
-import { FC } from 'react'
+import { forwardRef, HTMLAttributes } from 'react'
 import { ArrowRightIcon } from 'lucide-react'
 import { Button } from '@/components/atoms/button'
 import { Icon } from '@/components/atoms/icon'
 import { Intro } from '@/components/molecules/intro'
-import { cn, cva } from '@/utils/theme'
+import { cn, cva, VariantProps } from '@/utils/theme'
 
 const styles = {
-  root: cva('flex w-full items-center justify-center'),
+  root: cva('flex w-full flex-col items-center justify-center'),
   title: cva('text-h4 font-heading'),
   cta: cva('mt-2')
 }
 
-const CardHome: FC = () => {
+type CardHomeRef = HTMLDivElement
+type CardHomeProps = HTMLAttributes<CardHomeRef> & VariantProps<typeof styles.root>
+
+const CardHome = forwardRef<CardHomeRef, CardHomeProps>((props, ref) => {
+  const { className, ...rest } = props
+
   return (
-    <div className={cn(styles.root())}>
+    <div ref={ref} className={cn(styles.root({ className }))} {...rest}>
       <Intro>
         <h1 className={cn(styles.title())}>
           Works By <strong>Tony Ko</strong>
@@ -37,6 +42,7 @@ const CardHome: FC = () => {
       </Intro>
     </div>
   )
-}
+})
+CardHome.displayName = 'CardHome'
 
 export { CardHome }

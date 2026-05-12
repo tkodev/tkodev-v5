@@ -4,7 +4,8 @@
       "Bash(pnpm build *)",
       "Bash(pnpm lint:fix)",
       "Bash(git commit *)",
-      "Bash(pnpm type:check)"
+      "Bash(pnpm type:check)",
+      "Bash(git merge *)"
     ]
   }
 }
