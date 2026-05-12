@@ -20,14 +20,10 @@ const styles = {
       width: {
         full: 'max-w-7xl',
         narrow: 'max-w-7xl'
-      },
-      isCenter: {
-        true: 'flex items-center justify-center'
       }
     },
     defaultVariants: {
-      width: 'full',
-      isCenter: false
+      width: 'full'
     }
   })
 }
@@ -40,12 +36,12 @@ type SectionProps = HTMLAttributes<SectionRef> &
   }
 
 const Section = forwardRef<SectionRef, SectionProps>((props, ref) => {
-  const { bg, height, width, isCenter, className, children, ...rest } = props
+  const { bg, height, width, className, children, ...rest } = props
 
   return (
     <section ref={ref} className={cn(styles.root({ height }))} {...rest}>
       <div className={cn(styles.underlay())}>{bg}</div>
-      <div className={cn(styles.content({ width, className, isCenter }))}>{children}</div>
+      <div className={cn(styles.content({ width, className }))}>{children}</div>
     </section>
   )
 })

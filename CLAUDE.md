@@ -88,7 +88,7 @@ Components follow an **Atomic Design hierarchy**:
 
 - `atoms/` — The smallest, indivisible building blocks that can't be broken down further without losing functionality. (Button, Icon, Logo, Frame, Media, Video, Hypertext, etc.).
 - `molecules/` — Groups of atoms bonded together to form a small, functional unit with a singular purpose. (Nav, Filter, Table).
-- `organisms/` — Complex, self-contained UI components composed of molecules and/or atoms. Represent a distinct piece of content or interactivity. (CardHome, Dialog, etc.).
+- `organisms/` — Complex, self-contained UI components composed of molecules and/or atoms. Represent a distinct piece of content or interactivity. (CardIntro, Dialog, etc.).
 - `templates/` — Page-level layout shells: structural wrappers that frame the page but carry no content of their own. (Header, Footer, Main, Section, Overlay, Underlay). These are consumed directly by `app/` layouts and pages.
 - `app/` — Next.js pages and layouts. Compose from `templates/` for structure and `organisms/` for content.
 

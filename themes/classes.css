@@ -1,0 +1,30 @@
+/* Hide number arrows on inputs */
+@utility hide-number-arrows {
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+  & {
+    appearance: textfield;
+  }
+}
+
+/* Hide scrollbar */
+@utility hide-scrollbar {
+  &::-webkit-scrollbar {
+    display: none; /* Chrome Safari and Opera */
+  }
+  & {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* Centering via absolute */
+@utility centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
