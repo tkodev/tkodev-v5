@@ -2,40 +2,62 @@
 
 ## Purpose
 
-The animated entry point for the portfolio. Establishes tone and aesthetic before
-the visitor explores the rest of the site. Does not appear in the global nav.
+The entry point and front door of the portfolio. Establishes tone, communicates
+professional identity at a glance, and provides clear navigational paths to each
+major section of the site. Not in the global nav.
 
 ## Primary audience
 
-First-time visitors arriving directly at `tko.dev`.
+Anyone arriving at the site for the first time — founders, CTOs, designers, or
+professional contacts.
 
 ## Key messages
 
-- Tony Ko is a Staff Software Engineer with a distinctive, design-forward perspective.
-- The site itself is a portfolio artifact — its craft signals his standards.
+- Clear professional positioning at a glance.
+- Direct paths to the content areas visitors care about most.
 
 ## Content sections
 
-### Hero / Welcome
+### Intro section
 
-- Animated welcome text via `SectionWelcome` / `SectionHome`.
-- Lifecycle-aware: renders after the `intro` state completes.
-- No scrolling content; the home is a single-screen intro.
+- Brief statement of professional identity and creative perspective.
+- Establishes the tone and aesthetic of the site.
+
+### Career link section
+
+- Teaser and link to `/career`.
+- Communicates the depth and range of job experience.
+
+### Works link section
+
+- Teaser and link to `/projects`.
+- Communicates the breadth of shipped work.
+
+### Experiments link section
+
+- Teaser and link to `/experiments`.
+- Communicates the creative and design-forward side of the work.
+
+### Contact link section
+
+- Teaser and link to `/contact`.
+- Outreach and social links.
 
 ## CTAs
 
-- Implicit navigation: the header nav (Profile, Works, Shots, Archive) is the primary
-  forward path after the intro.
+- About → `/career`
+- Projects → `/projects`
+- Experiments → `/experiments`
+- Contact → `/contact`
 
 ## Functional requirements
 
-- `SectionHome` is rendered inside `<Main>` with `id="intro"`.
-- The page must be lifecycle-aware — content should not flash before the intro
-  animation completes.
-- No data fetching; no dynamic content.
+- No data fetching; all content is static.
+- Framer Motion may be used for entrance animations; keep them purposeful and fast.
 
 ## Acceptance criteria
 
-- [ ] Home renders without content flash before the lifecycle `ready` state.
-- [ ] Header nav is accessible from the home page in all lifecycle states.
-- [ ] Page is responsive and visually polished in light and dark modes.
+- [ ] All content sections render correctly.
+- [ ] All link sections route to the correct pages (`/career`, `/projects`, `/experiments`, `/contact`).
+- [ ] Page is responsive across xs–4xl breakpoints.
+- [ ] Page renders correctly in light and dark modes.

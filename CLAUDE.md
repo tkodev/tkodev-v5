@@ -41,7 +41,8 @@ pnpm type:check     # TypeScript type checking
 │       ├── projects.md
 │       ├── project.md
 │       ├── experiments.md
-│       └── notes.md
+│       ├── notes.md
+│       └── contact.md
 ├── app/                   # Next.js App Router pages
 ├── components/            # atoms → molecules → organisms → templates
 ├── constants/             # Static data (clients, jobs, projects, profiles, media, theme, date)

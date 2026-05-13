@@ -2,7 +2,7 @@ import { forwardRef, HTMLAttributes, ReactNode } from 'react'
 import { cn, cva, VariantProps } from '@/utils/theme'
 
 const styles = {
-  root: cva('relative flex h-auto w-full', {
+  root: cva('relative flex h-auto w-full overflow-hidden', {
     variants: {
       height: {
         full: 'min-h-full',
