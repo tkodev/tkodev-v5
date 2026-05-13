@@ -1,4 +1,12 @@
+import { ButtonProps } from '@/components/atoms/button'
 import { SvgComponent } from '@/types/theme'
+
+type NavEntry = {
+  href?: string
+  name?: string
+  icon?: SvgComponent
+  isHidden?: boolean
+} & ButtonProps
 
 type SelectEntry = {
   icon: SvgComponent
@@ -11,4 +19,4 @@ type PageProps = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 
-export type { PageProps, SelectEntry }
+export type { NavEntry, PageProps, SelectEntry }

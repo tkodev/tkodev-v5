@@ -43,14 +43,14 @@ pnpm type:check     # TypeScript type checking
 │   ├── career/        # /career
 │   ├── projects/      # /projects and /projects/[projectId]
 │   ├── experiments/   # /experiments
-│   └── notes/         # /notes
+│   ├── notes/         # /notes
+│   └── contact/       # /contact
 ├── components/
 │   ├── atoms/         # Primitive UI elements
 │   ├── molecules/     # Compound components
 │   ├── organisms/     # Page-section compositions
-│   ├── sections/      # Layout shells (header, footer, main)
-│   └── templates/     # Full-page layout wrappers
-├── constants/         # Static data (clients, jobs, projects, profiles, media, theme)
+│   └── templates/     # Layout shells (header, footer, main, section, overlay)
+├── constants/         # Static data (clients, jobs, projects, profiles, media, theme, date)
 ├── designs/           # Design assets (branding, signature)
 ├── fonts/             # next/font loader modules
 ├── hooks/             # React hooks
@@ -58,7 +58,7 @@ pnpm type:check     # TypeScript type checking
 ├── prd/
 │   ├── PRD.md         # Product requirements
 │   └── pages/         # One spec per route
-├── public/            # Static assets (favicons, files, fonts, images, videos)
+├── public/            # Static assets (audio, favicons, files, fonts, images, videos)
 ├── themes/            # CSS token files
 ├── types/             # TypeScript types for domain models
 └── utils/             # Utility functions

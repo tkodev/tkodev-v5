@@ -2,19 +2,18 @@
 
 import Link from 'next/link'
 import { FC, HTMLAttributes } from 'react'
-import { SunMoonIcon } from 'lucide-react'
+import { CameraIcon, DraftingCompassIcon, MailIcon, ScanFaceIcon } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/atoms/avatar'
-import { Button } from '@/components/atoms/button'
-import { Icon } from '@/components/atoms/icon'
 import { Logo } from '@/components/atoms/logo'
-import { useTheme } from '@/hooks/theme'
+import { NavEntry } from '@/types/layout'
 import { cn, cva, type VariantProps } from '@/utils/theme'
+import { Nav } from '../molecules/nav'
 
 const styles = {
   root: cva(['z-10 h-auto w-full', 'fixed top-0 left-0']),
   fade: cva([
     'pointer-events-none fixed -top-0.5 left-0 h-24 w-full',
-    'bg-background/30 gradient-mask-b-10'
+    'bg-background gradient-mask-b-10'
   ]),
   blur: cva(['pointer-events-none h-24 w-full', 'fixed -top-0.5 left-0']),
   container: cva(['h-auto w-full max-w-7xl', 'fixed top-4 left-1/2 mx-auto -translate-x-1/2 px-4']),
@@ -41,11 +40,17 @@ const styles = {
   intro: cva('hidden sm:block')
 }
 
+const navItems: NavEntry[] = [
+  { href: '/career', name: 'Career', icon: ScanFaceIcon, variant: 'ghost' },
+  { href: '/projects', name: 'Projects', icon: DraftingCompassIcon, variant: 'ghost' },
+  { href: '/experiments', name: 'Experiments', icon: CameraIcon, variant: 'ghost' },
+  { href: '/contact', name: 'Contact', icon: MailIcon, variant: 'ghost' }
+]
+
 type HeaderProps = HTMLAttributes<HTMLDivElement> & VariantProps<typeof styles.bar>
 
 const Header: FC<HeaderProps> = (props) => {
   const { variant, className, ...rest } = props
-  const { theme, handleThemeModeToggle } = useTheme()
 
   return (
     <header className={cn(styles.root({ className }))} {...rest}>
@@ -76,13 +81,7 @@ const Header: FC<HeaderProps> = (props) => {
             </Link>
           </div>
           <div className={cn(styles.right())}>
-            <Button
-              variant={theme === 'dark' ? 'secondary' : 'ghost'}
-              onClick={handleThemeModeToggle}
-            >
-              <Icon icon={SunMoonIcon} />
-              {theme === 'light' ? 'Light' : 'Dark'}
-            </Button>
+            <Nav items={navItems} />
           </div>
         </div>
       </div>

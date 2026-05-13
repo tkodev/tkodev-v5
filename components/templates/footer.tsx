@@ -3,10 +3,11 @@
 import Link from 'next/link'
 import { FC, HTMLAttributes } from 'react'
 import { formatInTimeZone } from 'date-fns-tz'
-import { MusicIcon, PauseIcon, PlayIcon } from 'lucide-react'
+import { MusicIcon, PauseIcon, PlayIcon, SunMoonIcon } from 'lucide-react'
 import { Button } from '@/components/atoms/button'
 import { Icon } from '@/components/atoms/icon'
 import { appTimeZone } from '@/constants/date'
+import { useTheme } from '@/hooks/theme'
 import { useBgmContext } from '@/providers/bgm'
 import { cn, cva, type VariantProps } from '@/utils/theme'
 
@@ -14,7 +15,7 @@ const styles = {
   root: cva(['z-10 h-auto w-full', 'fixed bottom-0 left-0']),
   fade: cva([
     'pointer-events-none fixed -bottom-0.5 left-0 h-24 w-full',
-    'bg-background/30 gradient-mask-t-10'
+    'bg-background gradient-mask-t-10'
   ]),
   blur: cva(['pointer-events-none h-24 w-full', 'fixed -bottom-0.5 left-0']),
   container: cva([
@@ -49,6 +50,7 @@ const Footer: FC<FooterProps> = (props) => {
 
   const { isPlaying, toggle } = useBgmContext()
   const year = formatInTimeZone(new Date(), appTimeZone, 'yyyy')
+  const { theme, handleThemeModeToggle } = useTheme()
 
   return (
     <footer className={cn(styles.root({ className }))} {...rest}>
@@ -80,6 +82,13 @@ const Footer: FC<FooterProps> = (props) => {
                 <Icon icon={MusicIcon} />
                 An Empty Bus - Justin M. Elias
               </Link>
+            </Button>
+            <Button
+              variant={theme === 'dark' ? 'secondary' : 'ghost'}
+              onClick={handleThemeModeToggle}
+            >
+              <Icon icon={SunMoonIcon} />
+              {theme === 'light' ? 'Light Mode' : 'Dark Mode'}
             </Button>
           </div>
         </div>
