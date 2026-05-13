@@ -13,8 +13,8 @@ import { cn, cva, type VariantProps } from '@/utils/theme'
 const styles = {
   root: cva(['z-10 h-auto w-full', 'fixed bottom-0 left-0']),
   fade: cva([
-    'pointer-events-none h-24 w-full',
-    'bg-background gradient-mask-t-10 fixed -bottom-0.5 left-0'
+    'pointer-events-none fixed -bottom-0.5 left-0 h-24 w-full',
+    'bg-background/30 gradient-mask-t-10'
   ]),
   blur: cva(['pointer-events-none h-24 w-full', 'fixed -bottom-0.5 left-0']),
   container: cva([

@@ -7,7 +7,6 @@ import { Button } from '@/components/atoms/button'
 import { Icon } from '@/components/atoms/icon'
 import { Intro } from '@/components/molecules/intro'
 import { cn, cva, VariantProps } from '@/utils/theme'
-import { Separator } from '../atoms/separator'
 
 const styles = {
   root: cva(''),
@@ -35,7 +34,6 @@ const CardIntro = forwardRef<CardIntroRef, CardIntroProps>((props, ref) => {
       <h3>
         Based in <em>Toronto, Canada.</em>
       </h3>
-      <Separator />
       <div className={cn(styles.cta())}>
         <Button size="lg" asChild>
           <Link href="/profile">

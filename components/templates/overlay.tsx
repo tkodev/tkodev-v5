@@ -1,6 +1,7 @@
 import { forwardRef, HTMLAttributes } from 'react'
 import { Cursor } from '@/components/atoms/cursor'
 import { cn, cva, VariantProps } from '@/utils/theme'
+import { Window } from '../atoms/window'
 
 const styles = {
   root: cva('')
@@ -14,6 +15,7 @@ const Overlay = forwardRef<OverlayRef, OverlayProps>((props, ref) => {
 
   return (
     <div ref={ref} className={cn(styles.root({ className }))} {...rest}>
+      <Window />
       <Cursor />
     </div>
   )
