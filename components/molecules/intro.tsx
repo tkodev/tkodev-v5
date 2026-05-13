@@ -28,7 +28,7 @@ const styles = {
   ]),
   avatar: cva(
     [
-      'centered absolute aspect-square h-auto w-1/2',
+      'centered absolute aspect-square h-auto w-1/2 opacity-50 dark:opacity-100',
       'transition-transform duration-1000 hover:scale-105'
     ],
     {

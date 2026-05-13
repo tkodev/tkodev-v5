@@ -12,7 +12,7 @@ const styles = {
     'mix-blend-exclusion'
   ]),
   wave: cva([
-    'border-background dark:border-foreground pointer-events-none border',
+    'border-background/30 dark:border-foreground/30 pointer-events-none border',
     'fixed top-0 left-0 z-9999 -translate-x-1/2 -translate-y-1/2',
     'size-18 rounded-full opacity-0',
     'mix-blend-exclusion'
@@ -39,6 +39,7 @@ const styles = {
 }
 
 type CursorState = 'default' | 'pointer' | 'disabled' | 'text' | 'grab'
+
 type IconConfig = {
   icon: FC<LucideProps>
   scale: number
