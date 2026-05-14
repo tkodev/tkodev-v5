@@ -2,10 +2,11 @@ import { ButtonProps } from '@/components/atoms/button'
 import { SvgComponent } from '@/types/theme'
 
 type NavEntry = {
+  intent: 'url' | 'theme' | 'music' | 'spacer'
   href?: string
   name?: string
   icon?: SvgComponent
-  isHidden?: boolean
+  isVisible: boolean
 } & ButtonProps
 
 type SelectEntry = {

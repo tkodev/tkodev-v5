@@ -2,10 +2,9 @@
 
 import Link from 'next/link'
 import { FC, HTMLAttributes } from 'react'
-import { CameraIcon, DraftingCompassIcon, MailIcon, ScanFaceIcon } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/atoms/avatar'
 import { Logo } from '@/components/atoms/logo'
-import { NavEntry } from '@/types/layout'
+import { headerItems } from '@/constants/layout'
 import { cn, cva, type VariantProps } from '@/utils/theme'
 import { Nav } from '../molecules/nav'
 
@@ -39,13 +38,6 @@ const styles = {
   logo: cva('mx-2 h-6 w-18 sm:mx-4 md:mx-8'),
   intro: cva('hidden sm:block')
 }
-
-const navItems: NavEntry[] = [
-  { href: '/career', name: 'Career', icon: ScanFaceIcon, variant: 'ghost' },
-  { href: '/projects', name: 'Projects', icon: DraftingCompassIcon, variant: 'ghost' },
-  { href: '/experiments', name: 'Experiments', icon: CameraIcon, variant: 'ghost' },
-  { href: '/contact', name: 'Contact', icon: MailIcon, variant: 'ghost' }
-]
 
 type HeaderProps = HTMLAttributes<HTMLDivElement> & VariantProps<typeof styles.bar>
 
@@ -81,7 +73,7 @@ const Header: FC<HeaderProps> = (props) => {
             </Link>
           </div>
           <div className={cn(styles.right())}>
-            <Nav items={navItems} />
+            <Nav items={headerItems} />
           </div>
         </div>
       </div>
