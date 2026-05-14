@@ -24,6 +24,7 @@ progression.
 Sourced from `constants/job.ts`. Displayed in reverse-chronological order (newest first).
 
 Each entry shows:
+
 - Company name
 - Job title
 - Location

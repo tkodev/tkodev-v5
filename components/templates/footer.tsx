@@ -3,13 +3,12 @@
 import Link from 'next/link'
 import { FC, HTMLAttributes } from 'react'
 import { formatInTimeZone } from 'date-fns-tz'
-import { MusicIcon, PauseIcon, PlayIcon, SunMoonIcon } from 'lucide-react'
-import { Button } from '@/components/atoms/button'
-import { Icon } from '@/components/atoms/icon'
 import { appTimeZone } from '@/constants/date'
-import { useTheme } from '@/hooks/theme'
-import { useBgmContext } from '@/providers/bgm'
+import { env } from '@/constants/env'
+import { footerItems } from '@/constants/layout'
 import { cn, cva, type VariantProps } from '@/utils/theme'
+import { Button } from '../atoms/button'
+import { Nav } from '../molecules/nav'
 
 const styles = {
   root: cva(['z-10 h-auto w-full', 'fixed bottom-0 left-0']),
@@ -38,9 +37,7 @@ const styles = {
   }),
 
   left: cva('flex h-full items-center gap-2 px-2'),
-  right: cva('no-scrollbar flex h-full items-center gap-2 overflow-x-auto px-2'),
-
-  bgm: cva('hidden sm:flex')
+  right: cva('no-scrollbar flex h-full items-center gap-2 overflow-x-auto px-2')
 }
 
 type FooterProps = HTMLAttributes<HTMLDivElement> & VariantProps<typeof styles.bar>
@@ -48,9 +45,8 @@ type FooterProps = HTMLAttributes<HTMLDivElement> & VariantProps<typeof styles.b
 const Footer: FC<FooterProps> = (props) => {
   const { variant, className, ...rest } = props
 
-  const { isPlaying, toggle } = useBgmContext()
   const year = formatInTimeZone(new Date(), appTimeZone, 'yyyy')
-  const { theme, handleThemeModeToggle } = useTheme()
+  const commitHref = `https://github.com/tkodev/tkodev-v5/commit/${env.NEXT_PUBLIC_COMMIT_SHA}`
 
   return (
     <footer className={cn(styles.root({ className }))} {...rest}>
@@ -69,27 +65,15 @@ const Footer: FC<FooterProps> = (props) => {
       <div className={cn(styles.fade())} />
       <div className={cn(styles.container())}>
         <div className={cn(styles.bar({ variant }))}>
-          <div className={cn(styles.left())}>© {year} Tony Ko — AGPL</div>
-          <div className={cn(styles.right())}>
-            <Button variant={isPlaying ? 'secondary' : 'ghost'} onClick={toggle}>
-              <Icon icon={isPlaying ? PauseIcon : PlayIcon} />
-            </Button>
-            <Button className={cn(styles.bgm())} size="default" variant="link" asChild>
-              <Link
-                href="https://uppbeat.io/track/justin-marshall-elias/an-empty-bus"
-                target="_blank"
-              >
-                <Icon icon={MusicIcon} />
-                An Empty Bus - Justin M. Elias
+          <div className={cn(styles.left())}>
+            <Button variant="link" asChild>
+              <Link href={commitHref} target="_blank">
+                {year} - {env.NEXT_PUBLIC_COMMIT_SHA.slice(0, 8)}
               </Link>
             </Button>
-            <Button
-              variant={theme === 'dark' ? 'secondary' : 'ghost'}
-              onClick={handleThemeModeToggle}
-            >
-              <Icon icon={SunMoonIcon} />
-              {theme === 'light' ? 'Light Mode' : 'Dark Mode'}
-            </Button>
+          </div>
+          <div className={cn(styles.right())}>
+            <Nav items={footerItems} />
           </div>
         </div>
       </div>

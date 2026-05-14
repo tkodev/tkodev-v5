@@ -29,6 +29,7 @@ to evaluate a specific project in detail.
 ### Frames
 
 Device-framed media (`project.frames`). Each frame entry has:
+
 - `frameId`: `'desktop'` or `'mobile'` — determines device frame rendered
 - `type`: `'image'` or `'video'`
 - `src`, `width`, `height`, `alt`
@@ -48,6 +49,7 @@ from the `project.desc` field.
 ### Team
 
 All `project.profileIds` rendered as collaborator credits. Each shows:
+
 - Name, title, LinkedIn link.
 
 ### Back navigation

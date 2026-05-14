@@ -14,8 +14,11 @@ import { cn, cva } from '@/utils/theme'
 import '@/themes/theme.css'
 
 const styles = {
-  html: cva('font-body bg-background text-foreground h-full w-full scroll-smooth text-base'),
-  body: cva('font-body bg-background text-foreground h-full w-full text-base antialiased')
+  html: cva([
+    'font-body bg-background text-foreground h-full w-full',
+    'text-md scroll-smooth antialiased'
+  ]),
+  body: cva(['font-body bg-background text-foreground h-full w-full', 'text-sm'])
 }
 
 const pagedata = {

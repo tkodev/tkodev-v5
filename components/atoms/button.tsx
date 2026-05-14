@@ -4,7 +4,15 @@ import { cn, cva, VariantProps } from '@/utils/theme'
 
 const styles = {
   root: cva(
-    "group/button focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:ring-3 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:ring-3 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    [
+      'focus-visible:border-ring focus-visible:ring-ring/50 rounded-md border border-transparent bg-clip-padding focus-visible:ring-3',
+      'aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 dark:aria-invalid:border-destructive/50 active:not-aria-[haspopup]:translate-y-px aria-invalid:ring-3',
+      'outline-none select-none [&_svg]:pointer-events-none',
+      "group/button inline-flex shrink-0 items-center justify-center [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+      'text-sm font-medium whitespace-nowrap',
+      'transition-all duration-1000',
+      'disabled:pointer-events-none disabled:opacity-50'
+    ],
     {
       variants: {
         variant: {
@@ -20,22 +28,22 @@ const styles = {
           link: 'text-primary underline-offset-4 hover:underline'
         },
         size: {
-          default:
-            'h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',
           xs: "h-6 gap-1 rounded-[min(var(--radius-md),10px)] px-2 text-xs in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3",
           sm: "h-7 gap-1 rounded-[min(var(--radius-md),12px)] px-2.5 text-[0.8rem] in-data-[slot=button-group]:rounded-lg has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 [&_svg:not([class*='size-'])]:size-3.5",
+          md: 'h-8 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',
           lg: 'h-9 gap-1.5 px-2.5 has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',
-          icon: 'size-8',
           'icon-xs':
             "size-6 rounded-[min(var(--radius-md),10px)] in-data-[slot=button-group]:rounded-lg [&_svg:not([class*='size-'])]:size-3",
           'icon-sm':
             'size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg',
-          'icon-lg': 'size-9'
+          'icon-md': 'size-8',
+          'icon-lg': 'size-9',
+          'icon-xl': 'size-10'
         }
       },
       defaultVariants: {
         variant: 'default',
-        size: 'default'
+        size: 'sm'
       }
     }
   )
